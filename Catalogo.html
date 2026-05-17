@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>AUREO | Catálogo</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', sans-serif;
+}
+
+body{
+
+  background:#021311;
+  color:white;
+  overflow-x:hidden;
+
+}
+
+/* ====================================
+   FONDO
+==================================== */
+
+.catalogo{
+
+  min-height:100vh;
+
+  padding:70px 8%;
+
+  position:relative;
+
+  background:
+
+  linear-gradient(
+  rgba(0,18,14,.82),
+  rgba(0,0,0,.92)
+  ),
+
+  url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=1400&auto=format&fit=crop');
+
+  background-size:cover;
+  background-position:center;
+
+}
+
+.catalogo::before{
+
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  background:
+  radial-gradient(circle at top,
+  rgba(16,120,90,.22),
+  transparent 65%);
+
+}
+
+.content{
+
+  position:relative;
+  z-index:2;
+
+}
+
+/* ====================================
+   TITULOS
+==================================== */
+
+.mini-title{
+
+  text-align:center;
+
+  color:#d4af37;
+
+  letter-spacing:6px;
+
+  margin-bottom:10px;
+
+  font-size:.9rem;
+
+}
+
+.title{
+
+  text-align:center;
+
+  color:#d4af37;
+
+  font-size:4rem;
+
+  font-weight:300;
+
+  letter-spacing:10px;
+
+  margin-bottom:15px;
+
+}
+
+.linea{
+
+  width:120px;
+  height:2px;
+
+  background:#d4af37;
+
+  margin:0 auto 60px auto;
+
+}
+
+/* ====================================
+   BOTONES
+==================================== */
+
+.top-categorias{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(170px,1fr));
+
+  gap:22px;
+
+  margin-bottom:40px;
+
+}
+
+.top-card{
+
+  background:
+  rgba(4,55,45,.18);
+
+  border:
+  1px solid rgba(212,175,55,.45);
+
+  border-radius:22px;
+
+  padding:40px 20px;
+
+  text-align:center;
+
+  cursor:pointer;
+
+  transition:.35s;
+
+  backdrop-filter: blur(10px);
+
+}
+
+.top-card:hover{
+
+  transform:translateY(-8px);
+
+  background:
+  rgba(8,90,70,.24);
+
+  box-shadow:
+  0 0 30px rgba(212,175,55,.12);
+
+}
+
+.icon{
+
+  font-size:3rem;
+
+  color:#d4af37;
+
+  margin-bottom:15px;
+
+}
+
+.top-card h2{
+
+  color:#d4af37;
+
+  font-weight:400;
+
+  letter-spacing:3px;
+
+  font-size:1rem;
+
+}
+
+/* ====================================
+   SUBMENUS
+==================================== */
+
+.submenu-grid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(420px,1fr));
+
+  gap:30px;
+
+}
+
+.submenu{
+
+  display:none;
+
+  background:
+  rgba(3,45,38,.22);
+
+  border:
+  1px solid rgba(212,175,55,.32);
+
+  border-radius:24px;
+
+  padding:35px;
+
+  backdrop-filter: blur(12px);
+
+  animation:fade .3s ease;
+
+}
+
+.submenu h2{
+
+  text-align:center;
+
+  color:#d4af37;
+
+  margin-bottom:25px;
+
+  font-weight:300;
+
+  letter-spacing:5px;
+
+}
+
+.submenu ul{
+
+  list-style:none;
+
+}
+
+.submenu li{
+
+  border-bottom:
+  1px solid rgba(212,175,55,.12);
+
+}
+
+.submenu a{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  text-decoration:none;
+
+  color:#f5f5f5;
+
+  padding:18px 8px;
+
+  letter-spacing:2px;
+
+  transition:.3s;
+
+}
+
+.submenu a:hover{
+
+  color:#d4af37;
+
+  padding-left:18px;
+
+}
+
+/* ====================================
+   FOOTER
+==================================== */
+
+footer{
+
+  text-align:center;
+
+  padding:35px;
+
+  background:black;
+
+  color:#777;
+
+  letter-spacing:3px;
+
+  font-size:.9rem;
+
+}
+
+/* ====================================
+   ANIMACION
+==================================== */
+
+@keyframes fade{
+
+  from{
+
+    opacity:0;
+    transform:translateY(-10px);
+
+  }
+
+  to{
+
+    opacity:1;
+    transform:translateY(0px);
+
+  }
+
+}
+
+/* ====================================
+   RESPONSIVE
+==================================== */
+
+@media(max-width:768px){
+
+  .title{
+
+    font-size:2.8rem;
+
+  }
+
+  .submenu-grid{
+
+    grid-template-columns:1fr;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<section class="catalogo">
+
+<div class="content">
+
+  <h3 class="mini-title">
+    AUREO
+  </h3>
+
+  <h1 class="title">
+    CATÁLOGO
+  </h1>
+
+  <div class="linea"></div>
+
+  <!-- ====================================
+       CATEGORIAS
+  ==================================== -->
+
+  <div class="top-categorias">
+
+    <div class="top-card"
+    onclick="toggleMenu('hombre')">
+
+      <div class="icon">♂</div>
+
+      <h2>HOMBRE</h2>
+
+    </div>
+
+    <div class="top-card"
+    onclick="toggleMenu('mujer')">
+
+      <div class="icon">♀</div>
+
+      <h2>MUJER</h2>
+
+    </div>
+
+    <div class="top-card"
+    onclick="toggleMenu('compromiso')">
+
+      <div class="icon">💍</div>
+
+      <h2>COMPROMISO</h2>
+
+    </div>
+
+    <div class="top-card"
+    onclick="toggleMenu('rosario')">
+
+      <div class="icon">✞</div>
+
+      <h2>ROSARIO</h2>
+
+    </div>
+
+    <div class="top-card"
+    onclick="toggleMenu('graduacion')">
+
+      <div class="icon">🎓</div>
+
+      <h2>GRADUACIÓN</h2>
+
+    </div>
+
+  </div>
+
+  <!-- ====================================
+       SUBMENUS
+  ==================================== -->
+
+  <div class="submenu-grid">
+
+    <!-- HOMBRE -->
+
+    <div class="submenu"
+    id="hombre">
+
+      <h2>HOMBRE</h2>
+
+      <ul>
+
+        <li>
+          <a href="cadenas-hombre.html">
+            Cadenas
+            <span>›</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="esclavas-hombre.html">
+            Esclavas
+            <span>›</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="pulsos-hombre.html">
+            Pulsos
+            <span>›</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="anillos-hombre.html">
+            Anillos
+            <span>›</span>
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+    <!-- MUJER -->
+
+    <div class="submenu"
+    id="mujer">
+
+      <h2>MUJER</h2>
+
+      <ul>
+
+        <li>
+          <a href="cadenas-mujer.html">
+            Cadenas
+            <span>›</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="esclavas-mujer.html">
+            Esclavas
+            <span>›</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="pulsos-mujer.html">
+            Pulsos
+            <span>›</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="anillos-mujer.html">
+            Anillos
+            <span>›</span>
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+    <!-- COMPROMISO -->
+
+    <div class="submenu"
+    id="compromiso">
+
+      <h2>COMPROMISO</h2>
+
+      <ul>
+
+        <li>
+          <a href="anillos-compromiso.html">
+            Ver Anillos
+            <span>›</span>
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+    <!-- ROSARIO -->
+
+    <div class="submenu"
+    id="rosario">
+
+      <h2>ROSARIO</h2>
+
+      <ul>
+
+        <li>
+          <a href="rosarios.html">
+            Ver Rosarios
+            <span>›</span>
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+    <!-- GRADUACION -->
+
+    <div class="submenu"
+    id="graduacion">
+
+      <h2>GRADUACIÓN</h2>
+
+      <ul>
+
+        <li>
+          <a href="graduacion.html">
+            Ver Anillos
+            <span>›</span>
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+<footer>
+
+AUREO © 2026 | Joyería de Lujo
+
+</footer>
+
+<script>
+
+/* ====================================
+   ABRIR Y CERRAR MENUS
+==================================== */
+
+function toggleMenu(id){
+
+  // TODOS los submenus
+  const menus =
+  document.querySelectorAll('.submenu');
+
+  // Menu seleccionado
+  const selectedMenu =
+  document.getElementById(id);
+
+  // Revisar si ya estaba abierto
+  const isOpen =
+  selectedMenu.style.display === "block";
+
+  // Cerrar TODOS
+  menus.forEach(menu => {
+
+    menu.style.display = "none";
+
+  });
+
+  // Abrir SOLO el seleccionado
+  if(!isOpen){
+
+    selectedMenu.style.display = "block";
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>

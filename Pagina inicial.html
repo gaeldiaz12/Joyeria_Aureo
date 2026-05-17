@@ -1,0 +1,156 @@
+<!-- ===================================
+     PAGINA 1 | index.html
+=================================== -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>AUREO | Inicio</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', sans-serif;
+}
+
+body{
+
+  height:100vh;
+
+  background:
+  linear-gradient(
+  rgba(0,20,15,.55),
+  rgba(0,0,0,.75)
+  ),
+
+  url('https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=1400&auto=format&fit=crop');
+
+  background-size:cover;
+  background-position:center;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+
+  overflow:hidden;
+
+}
+
+.hero{
+
+  position:relative;
+  z-index:2;
+
+}
+
+.logo{
+
+  font-size:7rem;
+
+  font-weight:300;
+
+  letter-spacing:16px;
+
+  color:#d4af37;
+
+  margin-bottom:25px;
+
+  text-shadow:
+  0 0 25px rgba(212,175,55,.18);
+
+}
+
+.subtitle{
+
+  color:#d8c487;
+
+  letter-spacing:8px;
+
+  margin-bottom:50px;
+
+  font-size:1rem;
+
+}
+
+.open-btn{
+
+  text-decoration:none;
+
+  color:#d4af37;
+
+  border:1px solid rgba(212,175,55,.45);
+
+  padding:16px 42px;
+
+  border-radius:40px;
+
+  letter-spacing:4px;
+
+  transition:.35s;
+
+  background:
+  rgba(5,45,35,.25);
+
+  backdrop-filter: blur(6px);
+
+}
+
+.open-btn:hover{
+
+  background:#d4af37;
+
+  color:black;
+
+  box-shadow:
+  0 0 30px rgba(212,175,55,.35);
+
+}
+
+@media(max-width:768px){
+
+  .logo{
+
+    font-size:4.5rem;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="hero">
+
+  <h1 class="logo">
+    AUREO
+  </h1>
+
+  <p class="subtitle">
+    JOYERÍA DE LUJO
+  </p>
+
+  <!-- LINK A PAGINA 2 -->
+
+  <a href="Catalogo.html"
+  class="open-btn">
+
+    ABRIR CATÁLOGO
+
+  </a>
+
+</div>
+
+</body>
+</html>
