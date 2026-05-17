@@ -196,13 +196,13 @@ body{
 
 .submenu-grid{
 
-  display:grid;
-
-  grid-template-columns:
-  repeat(auto-fit,minmax(420px,1fr));
-
-  gap:30px;
-
+    display:grid;
+  
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+  
+    gap:30px;
+  
 }
 
 .submenu{
@@ -339,6 +339,11 @@ footer{
   }
 
 }
+.submenu{
+
+    width:100%;
+  
+  }
 
 </style>
 
@@ -575,41 +580,47 @@ AUREO © 2026 | Joyería de Lujo
 
 <script>
 
-/* ====================================
-   ABRIR Y CERRAR MENUS
-==================================== */
-
-function toggleMenu(id){
-
-  // TODOS los submenus
-  const menus =
-  document.querySelectorAll('.submenu');
-
-  // Menu seleccionado
-  const selectedMenu =
-  document.getElementById(id);
-
-  // Revisar si ya estaba abierto
-  const isOpen =
-  selectedMenu.style.display === "block";
-
-  // Cerrar TODOS
-  menus.forEach(menu => {
-
-    menu.style.display = "none";
-
-  });
-
-  // Abrir SOLO el seleccionado
-  if(!isOpen){
-
-    selectedMenu.style.display = "block";
-
-  }
-
-}
-
-</script>
+    /* ====================================
+       ABRIR Y CERRAR MENUS
+    ==================================== */
+    
+    function toggleMenu(id){
+    
+      // TODOS los submenus
+      const menus =
+      document.querySelectorAll('.submenu');
+    
+      // Menu seleccionado
+      const selectedMenu =
+      document.getElementById(id);
+    
+      // Revisar si ya estaba abierto
+      const isOpen =
+      selectedMenu.style.display === "block";
+    
+      // Cerrar TODOS
+      menus.forEach(menu => {
+    
+        menu.style.display = "none";
+    
+      });
+    
+      // Abrir SOLO el seleccionado
+      if(!isOpen){
+    
+        selectedMenu.style.display = "block";
+    
+        // SCROLL AUTOMATICO EN CELULAR
+        selectedMenu.scrollIntoView({
+          behavior:"smooth",
+          block:"start"
+        });
+    
+      }
+    
+    }
+    
+    </script>
 
 </body>
 </html>
