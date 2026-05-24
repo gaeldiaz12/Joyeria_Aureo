@@ -1,0 +1,3197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>AUREO | Anillos de Graduación</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', sans-serif;
+}
+
+body{
+
+  background:#021311;
+  color:white;
+  overflow-x:hidden;
+
+}
+
+/* ====================================
+   FONDO
+==================================== */
+
+.page{
+
+  min-height:100vh;
+
+  padding:80px 8%;
+
+  background:
+
+  linear-gradient(
+  rgba(0,18,14,.85),
+  rgba(0,0,0,.92)
+  ),
+
+  url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=1400&auto=format&fit=crop');
+
+  background-size:cover;
+  background-position:center;
+
+}
+
+/* ====================================
+   TITULO
+==================================== */
+
+.subtitle{
+
+  text-align:center;
+
+  color:#d4af37;
+
+  letter-spacing:6px;
+
+  margin-bottom:10px;
+
+}
+
+.title{
+
+  text-align:center;
+
+  color:#d4af37;
+
+  font-size:4rem;
+
+  font-weight:300;
+
+  letter-spacing:10px;
+
+  margin-bottom:20px;
+
+}
+
+.linea{
+
+  width:140px;
+  height:2px;
+
+  background:#d4af37;
+
+  margin:0 auto 70px auto;
+
+}
+
+/* ====================================
+   PRODUCTOS
+==================================== */
+
+.productos{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3, 320px);
+
+    justify-content:center;
+
+    gap:35px;
+
+}
+  
+  /* CUADROS MÁS PEQUEÑOS */
+  
+  .card{
+  
+    width:320px;
+  
+    background:
+    rgba(3,45,38,.22);
+  
+    border:
+    1px solid rgba(212,175,55,.35);
+  
+    border-radius:20px;
+  
+    overflow:hidden;
+  
+    backdrop-filter: blur(12px);
+  
+    transition:.35s;
+  
+    box-shadow:
+    0 0 25px rgba(0,0,0,.22);
+  
+  }
+  
+  .card:hover{
+  
+    transform:translateY(-6px);
+  
+    box-shadow:
+    0 0 35px rgba(212,175,55,.12);
+  
+  }
+  
+  /* IMAGEN MÁS PEQUEÑA */
+  
+  .card img{
+  
+    width:100%;
+    height:240px;
+  
+    object-fit:cover;
+  
+  }
+  
+  /* CONTENIDO MÁS COMPACTO */
+  
+  .info{
+  
+    padding:20px;
+  
+  }
+  
+  .nombre{
+  
+    color:#d4af37;
+  
+    font-size:1.25rem;
+  
+    margin-bottom:12px;
+  
+    letter-spacing:2px;
+  
+  }
+  
+  .descripcion{
+  
+    color:#e8e8e8;
+  
+    line-height:1.5;
+  
+    margin-bottom:16px;
+  
+    font-size:.92rem;
+  
+  }
+  
+  .precio{
+  
+    color:#d4af37;
+  
+    font-size:1.2rem;
+  
+    margin-bottom:18px;
+  
+  }
+  /* ====================================
+   TALLAS
+==================================== */
+
+.tallas{
+
+    margin-bottom:20px;
+  
+  }
+  
+  .talla-title{
+  
+    display:block;
+  
+    color:#d4af37;
+  
+    margin-bottom:10px;
+  
+    letter-spacing:1px;
+  
+    font-size:.9rem;
+  
+  }
+  
+  .talla-list{
+  
+    display:flex;
+  
+    gap:10px;
+  
+    flex-wrap:wrap;
+  
+  }
+  
+  .talla-list span{
+  
+    border:
+    1px solid rgba(212,175,55,.35);
+  
+    color:#d4af37;
+  
+    padding:6px 12px;
+  
+    border-radius:30px;
+  
+    font-size:.82rem;
+  
+    background:
+    rgba(255,255,255,.03);
+  
+    transition:.3s;
+  
+  }
+  
+  .talla-list span:hover{
+  
+    background:#d4af37;
+  
+    color:black;
+  
+  }
+  
+  /* BOTON MÁS PEQUEÑO */
+  
+  .btn{
+  
+    display:inline-block;
+  
+    text-decoration:none;
+  
+    color:#d4af37;
+  
+    border:
+    1px solid rgba(212,175,55,.45);
+  
+    padding:11px 18px;
+  
+    border-radius:40px;
+  
+    transition:.3s;
+  
+    letter-spacing:1px;
+  
+    font-size:.85rem;
+  
+    cursor:pointer;
+  
+  }
+  
+  .btn:hover{
+  
+    background:#d4af37;
+  
+    color:black;
+  
+  }
+  
+  /* TABLA MÁS COMPACTA */
+  
+  .financiamiento{
+  
+    display:none;
+  
+    margin-top:22px;
+  
+    animation:fade .35s ease;
+  
+  }
+  
+  .note{
+  
+    color:#d8d8d8;
+  
+    margin-bottom:14px;
+  
+    line-height:1.5;
+  
+    font-size:.85rem;
+  
+  }
+  
+  table{
+  
+    width:100%;
+  
+    border-collapse:collapse;
+  
+    overflow:hidden;
+  
+    border-radius:12px;
+  
+  }
+  
+  th{
+  
+    background:
+    rgba(212,175,55,.15);
+  
+    color:#d4af37;
+  
+    padding:11px;
+  
+    letter-spacing:1px;
+  
+    font-size:.82rem;
+  
+  }
+  
+  td{
+  
+    padding:11px;
+  
+    text-align:center;
+  
+    border-bottom:
+    1px solid rgba(255,255,255,.08);
+  
+    background:
+    rgba(255,255,255,.03);
+  
+    font-size:.82rem;
+  
+  }
+
+/* ====================================
+   BOTON
+==================================== */
+
+.btn{
+
+  display:inline-block;
+
+  text-decoration:none;
+
+  color:#d4af37;
+
+  border:
+  1px solid rgba(212,175,55,.45);
+
+  padding:14px 24px;
+
+  border-radius:40px;
+
+  transition:.3s;
+
+  letter-spacing:2px;
+
+  cursor:pointer;
+
+}
+
+.btn:hover{
+
+  background:#d4af37;
+
+  color:black;
+
+}
+
+/* ====================================
+   TABLA
+==================================== */
+
+.financiamiento{
+
+  display:none;
+
+  margin-top:30px;
+
+  animation:fade .35s ease;
+
+}
+
+.note{
+
+  color:#d8d8d8;
+
+  margin-bottom:18px;
+
+  line-height:1.6;
+
+}
+
+table{
+
+  width:100%;
+
+  border-collapse:collapse;
+
+  overflow:hidden;
+
+  border-radius:15px;
+
+}
+
+th{
+
+  background:
+  rgba(212,175,55,.15);
+
+  color:#d4af37;
+
+  padding:15px;
+
+  letter-spacing:2px;
+
+}
+
+td{
+
+  padding:15px;
+
+  text-align:center;
+
+  border-bottom:
+  1px solid rgba(255,255,255,.08);
+
+  background:
+  rgba(255,255,255,.03);
+
+}
+
+/* ====================================
+   ANIMACION
+==================================== */
+
+@keyframes fade{
+
+  from{
+
+    opacity:0;
+    transform:translateY(-10px);
+
+  }
+
+  to{
+
+    opacity:1;
+    transform:translateY(0);
+
+  }
+
+}
+
+/* ====================================
+   RESPONSIVE
+==================================== */
+
+@media(max-width:768px){
+
+  .title{
+
+    font-size:2.5rem;
+
+  }
+
+}
+@media(max-width:1100px){
+
+    .productos{
+  
+      grid-template-columns:
+      repeat(2, 320px);
+  
+    }
+  
+  }
+  
+  @media(max-width:768px){
+  
+    .productos{
+  
+      grid-template-columns:
+      1fr;
+  
+    }
+  
+  }
+
+</style>
+
+</head>
+
+<body>
+
+<section class="page">
+
+  <h3 class="subtitle">
+    AUREO
+  </h3>
+
+  <h1 class="title">
+    ESCLAVAS
+  </h1>
+
+  <div class="linea"></div>
+
+  <!-- ====================================
+       PRODUCTOS
+  ==================================== -->
+
+  <div class="productos">
+
+    <!-- PRODUCTO 1 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04102EO_720x.jpg?v=1757378102">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            ESCLAVA 1 AUREO 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestra esclava aureo cartier 10k.
+
+        </p>
+
+        <div class="precio">
+            $83,999 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance1')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance1">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 2 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04101EO_720x.jpg?v=1757378101">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            ESCLAVA AUREO 2 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestra esclava aureo cartier 10k.
+
+        </p>
+
+        <div class="precio">
+            $54,799 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance2')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance2">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 3 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04004EO_720x.jpg?v=1757378094">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            ESCLAVA AUREO 3 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestra esclava aureo cartier 10k.
+
+        </p>
+
+        <div class="precio">
+            $14,999 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance3')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance3">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 4 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04003EO_720x.jpg?v=1757378093">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            ESCLAVA AUREO 4 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestra esclava aureo cartier 10k.
+
+        </p>
+
+        <div class="precio">
+            $8,999 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance4')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance4">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 5 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04002EO_720x.jpg?v=1757378091">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            ESCLAVA AUREO 5 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestra esclava aureo cartier 10k.
+
+        </p>
+
+        <div class="precio">
+            $5,499 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance5')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance5">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 6 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04001EO_720x.jpg?v=1757378090">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            ESCLAVA AUREO 6 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestra esclava aureo cartier 10k.
+
+        </p>
+
+        <div class="precio">
+            $8,499 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance6')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance6">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 7 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/03905EO_720x.jpg?v=1757378088">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            ESCLAVA AUREO 7 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestra esclava aureo troqueleada 10k.
+
+        </p>
+
+        <div class="precio">
+            $32,499 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance7')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance7">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 8 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04204EO_720x.jpg?v=1757378110">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            ESCLAVA AUREO 8 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestra esclava aureo china 10k.
+
+        </p>
+
+        <div class="precio">
+            $134,499 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance8')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance8">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 9 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04203EO_720x.jpg?v=1757378109">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            ESCLAVA AUREO 9 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestra esclava aureo china 10k.
+
+        </p>
+
+        <div class="precio">
+            $103,199 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance9')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance9">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 10 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04202EO_720x.jpg?v=1757378107">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            ESCLAVA AUREO 10 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestra esclava aureo china 10k.
+
+        </p>
+
+        <div class="precio">
+            $68,999 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance10')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance10">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 11 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04201EO_720x.jpg?v=1757378105">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            ESCLAVA AUREO 11 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestra esclava aureo china 10k.
+
+        </p>
+
+        <div class="precio">
+            $54,999 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance11')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance11">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 12 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04103EO_720x.jpg?v=1757378104">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            ESCLAVA AUREO 12 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestra esclava aureo china 10k.
+
+        </p>
+
+        <div class="precio">
+            $93,499 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance12')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance12">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 13 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04006EO-14_720x.jpg?v=1757378097">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            ESCLAVA AUREO 13 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestra esclava aureo china 10k.
+
+        </p>
+
+        <div class="precio">
+            $15,999 MXN
+        </div>
+  
+    </div>
+    <div class="tallas">
+
+            <span class="talla-title">
+                Tallas Disponibles:
+            </span>
+  
+        <div class="talla-list">
+  
+        <span>14 cm</span>
+        <span>18 cm</span>
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance13')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance13">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 14 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/03904EO_720x.jpg?v=1757378086">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            ESCLAVA AUREO 14 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestra esclava aureo china 10k.
+
+        </p>
+
+        <div class="precio">
+            $37,499 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance14')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance14">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 15 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04005EO_720x.jpg?v=1757378096">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            ESCLAVA AUREO 15 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestra esclava aureo china 10k.
+
+        </p>
+
+        <div class="precio">
+            $22,999 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance15')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance15">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 16 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/03903EO_720x.jpg?v=1757378085">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            ESCLAVA AUREO 16 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestra esclava aureo china 10k.
+
+        </p>
+
+        <div class="precio">
+            $44,499 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance16')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance16">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 17 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/03901EO_720x.jpg?v=1757378082">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            ESCLAVA AUREO 17 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestra esclava aureo bismark 10k.
+
+        </p>
+
+        <div class="precio">
+            $20,299 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance17')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance17">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 18 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/03902EO_720x.jpg?v=1757378083">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            ESCLAVA AUREO 18 DE PIEDRA 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestra esclava aureo de piedra estilo florentina 10k.
+
+        </p>
+
+        <div class="precio">
+            $12,499 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance18')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance18">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 19 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/03707PO_720x.jpg?v=1757378064">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            PULSO AUREO 19 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestro pulso aureo cartier 10k.
+
+        </p>
+
+        <div class="precio">
+            $21,499 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance19')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance19">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 20 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/03706PO_720x.jpg?v=1757378062">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            PULSO AUREO 20 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestro pulso aureo cartier 10k.
+
+        </p>
+
+        <div class="precio">
+            $14,999 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance20')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance20">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 21 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/03705PO_720x.jpg?v=1757378061">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            PULSO AUREO 21 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestro pulso aureo cartier 10k.
+
+        </p>
+
+        <div class="precio">
+            $11,999 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance21')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance21">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 22 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/03704PO_720x.jpg?v=1757378059">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            PULSO AUREO 22 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestro pulso aureo cartier 10k.
+
+        </p>
+
+        <div class="precio">
+            $8,099 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance22')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance22">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 23 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/03703PO_720x.jpg?v=1757378058">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            PULSO AUREO 23 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestro pulso aureo cartier 10k.
+
+        </p>
+
+        <div class="precio">
+            $4,999 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance23')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance23">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 24 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/03702PO-18_720x.jpg?v=1757378056">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            PULSO AUREO 24 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestro pulso aureo cartier 10k.
+
+        </p>
+
+        <div class="precio">
+            $12,999 MXN
+        </div>
+  
+    </div>
+    <div class="tallas">
+
+      <span class="talla-title">
+        Tallas Disponibles:
+      </span>
+
+      <div class="talla-list">
+
+        <span>18 cm</span>
+        <span>21 cm</span>
+
+      </div>
+
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance24')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance24">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 25 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/03701PO_720x.jpg?v=1757378054">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            PULSO AUREO 25 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestro pulso aureo cartier 10k.
+
+        </p>
+
+        <div class="precio">
+            $8,999 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance25')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance25">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 26 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/05204PO_720x.jpg?v=1757378251">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            PULSO AUREO 26 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestro pulso aureo chino 10k.
+
+        </p>
+
+        <div class="precio">
+            $33,999 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance26')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance26">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 27 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/05202PO_720x.jpg?v=1757378248">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            PULSO AUREO 27 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestro pulso aureo chino 10k.
+
+        </p>
+
+        <div class="precio">
+            $62,999 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance27')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance27">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 28 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/05004PO_720x.jpg?v=1757378243">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            PULSO AUREO 28 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestro pulso aureo chino 10k.
+
+        </p>
+
+        <div class="precio">
+            $34,999 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance28')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance28">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 29 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/05002PO_720x.jpg?v=1757378239">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            PULSO AUREO 29 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestro pulso aureo chino 10k.
+
+        </p>
+
+        <div class="precio">
+            $61,999 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance29')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance29">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 30 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/03610PO_720x.jpg?v=1757378046">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            PULSO AUREO 30 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestro pulso aureo chino 10k.
+
+        </p>
+
+        <div class="precio">
+            $32,499 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance30')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance30">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 31 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/03609PO_720x.jpg?v=1757378045">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            PULSO AUREO 31 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestro pulso aureo chino 10k.
+
+        </p>
+
+        <div class="precio">
+            $23,999 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance31')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance31">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCTO 32 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/03608PO_720x.jpg?v=1757378043">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            PULSO AUREO 32 10K
+        </h2>
+
+        <p class="descripcion">
+
+          Nuestro pulso aureo chino 10k.
+
+        </p>
+
+        <div class="precio">
+            $43,999 MXN
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance32')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance32">
+
+          <p class="note">
+
+            Puedes pagar tu anillo
+            en cómodos plazos mensuales. Cada producto
+            se requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+</section>
+
+<script>
+
+    /* ====================================
+       MOSTRAR / OCULTAR FINANCIAMIENTO
+    ==================================== */
+    
+    function toggleFinance(id){
+    
+      const finance =
+      document.getElementById(id);
+    
+      const isOpen =
+      finance.style.display === "block";
+    
+      if(isOpen){
+    
+        finance.style.display = "none";
+    
+      }else{
+    
+        finance.style.display = "block";
+    
+      }
+    
+    }
+    
+    /* ====================================
+       CALCULAR FINANCIAMIENTO AUTOMATICO
+    ==================================== */
+    
+    function calcularFinanciamiento(){
+    
+      // TODOS los productos
+      const cards =
+      document.querySelectorAll('.card');
+    
+      cards.forEach(card => {
+    
+        // Obtener precio
+        const precioTexto =
+        card.querySelector('.precio')
+        .innerText;
+    
+        // Limpiar precio
+        const precio =
+        parseFloat(
+          precioTexto
+          .replace('$','')
+          .replace(',','')
+          .replace(' MXN','')
+        );
+    
+        // Obtener filas de tabla
+        const filas =
+        card.querySelectorAll('table tr');
+    
+        // 3 MESES -> 5%
+        let total3 =
+        precio + (precio * 0.05);
+    
+        filas[1].children[2].innerText =
+        "$" +
+        total3.toLocaleString('es-MX',
+        {maximumFractionDigits:0})
+        + " MXN";
+    
+        // 6 MESES -> 10%
+        let total6 =
+        precio + (precio * 0.10);
+    
+        filas[2].children[2].innerText =
+        "$" +
+        total6.toLocaleString('es-MX',
+        {maximumFractionDigits:0})
+        + " MXN";
+    
+        // 9 MESES -> 15%
+        let total9 =
+        precio + (precio * 0.15);
+    
+        filas[3].children[2].innerText =
+        "$" +
+        total9.toLocaleString('es-MX',
+        {maximumFractionDigits:0})
+        + " MXN";
+    
+      });
+    
+    }
+    
+    /* ====================================
+       EJECUTAR AUTOMATICAMENTE
+    ==================================== */
+    
+    calcularFinanciamiento();
+    
+    </script>
+
+</body>
+</html>

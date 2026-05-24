@@ -1,0 +1,4379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>AUREO | Anillos de Graduación</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', sans-serif;
+}
+
+body{
+
+  background:#021311;
+  color:white;
+  overflow-x:hidden;
+
+}
+
+/* ====================================
+   FONDO
+==================================== */
+
+.page{
+
+  min-height:100vh;
+
+  padding:80px 8%;
+
+  background:
+
+  linear-gradient(
+  rgba(0,18,14,.85),
+  rgba(0,0,0,.92)
+  ),
+
+  url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=1400&auto=format&fit=crop');
+
+  background-size:cover;
+  background-position:center;
+
+}
+
+/* ====================================
+   TITULO
+==================================== */
+
+.subtitle{
+
+  text-align:center;
+
+  color:#d4af37;
+
+  letter-spacing:6px;
+
+  margin-bottom:10px;
+
+}
+
+.title{
+
+  text-align:center;
+
+  color:#d4af37;
+
+  font-size:4rem;
+
+  font-weight:300;
+
+  letter-spacing:10px;
+
+  margin-bottom:20px;
+
+}
+
+.linea{
+
+  width:140px;
+  height:2px;
+
+  background:#d4af37;
+
+  margin:0 auto 70px auto;
+
+}
+
+/* ====================================
+   PRODUCTOS
+==================================== */
+
+.productos{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3, 320px);
+
+    justify-content:center;
+
+    gap:35px;
+
+}
+  
+  /* CUADROS MÁS PEQUEÑOS */
+  
+  .card{
+  
+    width:320px;
+  
+    background:
+    rgba(3,45,38,.22);
+  
+    border:
+    1px solid rgba(212,175,55,.35);
+  
+    border-radius:20px;
+  
+    overflow:hidden;
+  
+    backdrop-filter: blur(12px);
+  
+    transition:.35s;
+  
+    box-shadow:
+    0 0 25px rgba(0,0,0,.22);
+  
+  }
+  
+  .card:hover{
+  
+    transform:translateY(-6px);
+  
+    box-shadow:
+    0 0 35px rgba(212,175,55,.12);
+  
+  }
+  
+  /* IMAGEN MÁS PEQUEÑA */
+  
+  .card img{
+  
+    width:100%;
+    height:240px;
+  
+    object-fit:cover;
+  
+  }
+  
+  /* CONTENIDO MÁS COMPACTO */
+  
+  .info{
+  
+    padding:20px;
+  
+  }
+  
+  .nombre{
+  
+    color:#d4af37;
+  
+    font-size:1.25rem;
+  
+    margin-bottom:12px;
+  
+    letter-spacing:2px;
+  
+  }
+  
+  .descripcion{
+  
+    color:#e8e8e8;
+  
+    line-height:1.5;
+  
+    margin-bottom:16px;
+  
+    font-size:.92rem;
+  
+  }
+  
+  .precio{
+  
+    color:#d4af37;
+  
+    font-size:1.2rem;
+  
+    margin-bottom:18px;
+  
+  }
+  /* ====================================
+   TALLAS
+==================================== */
+
+.tallas{
+
+    margin-bottom:20px;
+  
+  }
+  
+  .talla-title{
+  
+    display:block;
+  
+    color:#d4af37;
+  
+    margin-bottom:10px;
+  
+    letter-spacing:1px;
+  
+    font-size:.9rem;
+  
+  }
+  
+  .talla-list{
+  
+    display:flex;
+  
+    gap:10px;
+  
+    flex-wrap:wrap;
+  
+  }
+  
+  .talla-list span{
+  
+    border:
+    1px solid rgba(212,175,55,.35);
+  
+    color:#d4af37;
+  
+    padding:6px 12px;
+  
+    border-radius:30px;
+  
+    font-size:.82rem;
+  
+    background:
+    rgba(255,255,255,.03);
+  
+    transition:.3s;
+  
+  }
+  
+  .talla-list span:hover{
+  
+    background:#d4af37;
+  
+    color:black;
+  
+  }
+  
+  /* BOTON MÁS PEQUEÑO */
+  
+  .btn{
+  
+    display:inline-block;
+  
+    text-decoration:none;
+  
+    color:#d4af37;
+  
+    border:
+    1px solid rgba(212,175,55,.45);
+  
+    padding:11px 18px;
+  
+    border-radius:40px;
+  
+    transition:.3s;
+  
+    letter-spacing:1px;
+  
+    font-size:.85rem;
+  
+    cursor:pointer;
+  
+  }
+  
+  .btn:hover{
+  
+    background:#d4af37;
+  
+    color:black;
+  
+  }
+  
+  /* TABLA MÁS COMPACTA */
+  
+  .financiamiento{
+  
+    display:none;
+  
+    margin-top:22px;
+  
+    animation:fade .35s ease;
+  
+  }
+  
+  .note{
+  
+    color:#d8d8d8;
+  
+    margin-bottom:14px;
+  
+    line-height:1.5;
+  
+    font-size:.85rem;
+  
+  }
+  
+  table{
+  
+    width:100%;
+  
+    border-collapse:collapse;
+  
+    overflow:hidden;
+  
+    border-radius:12px;
+  
+  }
+  
+  th{
+  
+    background:
+    rgba(212,175,55,.15);
+  
+    color:#d4af37;
+  
+    padding:11px;
+  
+    letter-spacing:1px;
+  
+    font-size:.82rem;
+  
+  }
+  
+  td{
+  
+    padding:11px;
+  
+    text-align:center;
+  
+    border-bottom:
+    1px solid rgba(255,255,255,.08);
+  
+    background:
+    rgba(255,255,255,.03);
+  
+    font-size:.82rem;
+  
+  }
+
+/* ====================================
+   BOTON
+==================================== */
+
+.btn{
+
+  display:inline-block;
+
+  text-decoration:none;
+
+  color:#d4af37;
+
+  border:
+  1px solid rgba(212,175,55,.45);
+
+  padding:14px 24px;
+
+  border-radius:40px;
+
+  transition:.3s;
+
+  letter-spacing:2px;
+
+  cursor:pointer;
+
+}
+
+.btn:hover{
+
+  background:#d4af37;
+
+  color:black;
+
+}
+
+/* ====================================
+   TABLA
+==================================== */
+
+.financiamiento{
+
+  display:none;
+
+  margin-top:30px;
+
+  animation:fade .35s ease;
+
+}
+
+.note{
+
+  color:#d8d8d8;
+
+  margin-bottom:18px;
+
+  line-height:1.6;
+
+}
+
+table{
+
+  width:100%;
+
+  border-collapse:collapse;
+
+  overflow:hidden;
+
+  border-radius:15px;
+
+}
+
+th{
+
+  background:
+  rgba(212,175,55,.15);
+
+  color:#d4af37;
+
+  padding:15px;
+
+  letter-spacing:2px;
+
+}
+
+td{
+
+  padding:15px;
+
+  text-align:center;
+
+  border-bottom:
+  1px solid rgba(255,255,255,.08);
+
+  background:
+  rgba(255,255,255,.03);
+
+}
+
+/* ====================================
+   ANIMACION
+==================================== */
+
+@keyframes fade{
+
+  from{
+
+    opacity:0;
+    transform:translateY(-10px);
+
+  }
+
+  to{
+
+    opacity:1;
+    transform:translateY(0);
+
+  }
+
+}
+
+/* ====================================
+   RESPONSIVE
+==================================== */
+
+@media(max-width:768px){
+
+  .title{
+
+    font-size:2.5rem;
+
+  }
+
+}
+@media(max-width:1100px){
+
+    .productos{
+  
+      grid-template-columns:
+      repeat(2, 320px);
+  
+    }
+  
+  }
+  
+  @media(max-width:768px){
+  
+    .productos{
+  
+      grid-template-columns:
+      1fr;
+  
+    }
+  
+  }
+
+</style>
+
+</head>
+
+<body>
+
+<section class="page">
+
+  <h3 class="subtitle">
+    AUREO
+  </h3>
+
+  <h1 class="title">
+    CADENAS
+  </h1>
+
+  <div class="linea"></div>
+
+  <!-- ====================================
+       PRODUCTOS
+  ==================================== -->
+
+  <div class="productos">
+
+    <!-- PRODUCTO 1 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04301CO-45_720x.jpg?v=1757378112">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            CADENA 1 10K
+        </h2>
+
+        <p class="descripcion">
+
+            
+
+        </p>
+
+        <div class="precio">
+            $4,699 MXN
+        </div>
+        <!-- ====================== TALLAS DISPONIBLES================================ -->
+
+        <div class="tallas">
+
+            <span class="talla-title">
+                Tallas Disponibles:
+            </span>
+  
+        <div class="talla-list">
+  
+        <span>45 cm</span>
+        <span>10 cm</span>
+        </div>
+  
+    </div>
+
+        <a class="btn"
+        onclick="toggleFinance('finance1')">
+          VER FINANCIAMIENTO
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance1">
+
+          <p class="note">
+
+            Elige el plan de financiamiento
+            que mejor se adapte a ti. Cada producto se
+            requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- PRODUCTO 2 -->
+
+    <div class="card">
+
+      <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04508CO_720x.jpg?v=1757378166">
+
+      <div class="info">
+
+        <h2 class="nombre">
+            CADENA 2 10K
+        </h2>
+
+        <p class="descripcion">
+
+            CADENA
+
+        </p>
+
+        <div class="precio">
+          $30,099 MXN
+        </div>
+        <!-- ====================== TALLAS DISPONIBLES================================ -->
+
+        <a class="btn"
+        onclick="toggleFinance('finance2')">
+
+          VER FINANCIAMIENTO
+
+        </a>
+
+        <!-- TABLA -->
+
+        <div class="financiamiento"
+        id="finance2">
+
+          <p class="note">
+
+            Puedes pagar tu anillo en cómodos
+            plazos mensuales. Cada producto se
+            requiere un pago inicial del 40% del pago final.
+
+          </p>
+
+          <table>
+
+            <tr>
+
+              <th>Meses</th>
+              <th>% Aumenta</th>
+              <th>Pago Final</th>
+
+            </tr>
+
+            <tr>
+                <td>3 Meses</td>
+                <td>5%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>6 Meses</td>
+                <td>10%</td>
+                <td></td>
+              
+            </tr>
+
+            <tr>
+                <td>9 Meses</td>
+                <td>15%</td>
+                <td></td>
+              
+              </tr>
+
+          </table>
+
+        </div>
+
+    </div>
+
+  </div>
+
+    <!-- PRODUCTO 3 -->
+
+<div class="card">
+
+  <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04510CO-45_720x.jpg?v=1757378170">
+
+  <div class="info">
+
+    <h2 class="nombre">
+      CADENA 3 10K
+    </h2>
+
+    <p class="descripcion">
+
+      CADENA BARBADA 10K
+
+    </p>
+
+    <div class="precio">
+      $13,499 MXN
+    </div>
+
+    <!-- TALLAS -->
+
+    <div class="tallas">
+
+      <span class="talla-title">
+        Tallas Disponibles:
+      </span>
+
+      <div class="talla-list">
+
+        <span>45 cm</span>
+        <span>55 cm</span>
+
+      </div>
+
+    </div>
+
+    <!-- BOTON -->
+
+    <a class="btn"
+    onclick="toggleFinance('finance3')">
+
+      VER FINANCIAMIENTO
+
+    </a>
+
+    <!-- TABLA -->
+
+    <div class="financiamiento"
+    id="finance3">
+
+      <p class="note">
+
+        Puedes pagar tu anillo
+        en cómodos plazos mensuales.
+
+      </p>
+
+      <table>
+
+        <tr>
+
+          <th>Meses</th>
+          <th>% Aumenta</th>
+          <th>Pago Final</th>
+
+        </tr>
+
+        <tr>
+
+          <td>3 Meses</td>
+          <td>5%</td>
+          <td></td>
+
+        </tr>
+
+        <tr>
+
+          <td>6 Meses</td>
+          <td>10%</td>
+          <td></td>
+
+        </tr>
+
+        <tr>
+
+          <td>9 Meses</td>
+          <td>15%</td>
+          <td></td>
+
+        </tr>
+
+      </table>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- PRODUCTO 4 -->
+
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04511CO_720x.jpg?v=1757378173">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 4 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        Anillo elegante con piedra roja
+        central y acabado brillante premium.
+  
+      </p>
+  
+      <div class="precio">
+        $33,999 MXN
+      </div>
+  
+      <!-- TALLAS -->
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance4')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance4">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+
+<!-- PRODUCTO 5 -->
+
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04512CO_720x.jpg?v=1757378174">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 5 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA BARBADA 10K
+  
+      </p>
+  
+      <div class="precio">
+        $49,000 MXN
+      </div>
+  
+      <!-- TALLAS -->
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance5')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance5">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+
+<!-- PRODUCTO 6 -->
+
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04513CO_720x.jpg?v=1757378176">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 6 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA BARBADA 10K
+  
+      </p>
+  
+      <div class="precio">
+        $74,999 MXN
+      </div>
+  
+      <!-- TALLAS -->
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance6')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance6">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+
+
+<!-- PRODUCTO 7 -->
+
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04514CO_720x.jpg?v=1757378178">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 7 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA BARBADA 10K
+  
+      </p>
+  
+      <div class="precio">
+        $154,999 MXN
+      </div>
+  
+      <!-- TALLAS -->
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance7')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance7">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+
+<!-- PRODUCTO 8 -->
+
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04706CO_720x.jpg?v=1757378219">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 8 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA BARBADA 10K
+  
+      </p>
+  
+      <div class="precio">
+        $163,999 MXN
+      </div>
+  
+      <!-- TALLAS -->
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance8')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance8">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+
+  <!-- PRODUCTO 9 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04708CO_720x.jpg?v=1757378222">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 9 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA BARBADA 10K
+  
+      </p>
+  
+      <div class="precio">
+        $96,999 MXN
+      </div>
+  
+      <!-- TALLAS -->
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance9')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance9">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+
+  <!-- PRODUCTO 10 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04409CO_720x.jpg?v=1757378146">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 10 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA FLORENTINA 10K
+  
+      </p>
+  
+      <div class="precio">
+        $9,499 MXN
+      </div>
+  
+      <!-- TALLAS -->
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance10')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance10">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+
+  <!-- PRODUCTO 11 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04410CO_720x.jpg?v=1757378148">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 11 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA FLORENTINA 10K
+  
+      </p>
+  
+      <div class="precio">
+        $33,999 MXN
+      </div>
+  
+      <!-- TALLAS -->
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance11')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance11">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+
+  <!-- PRODUCTO 12 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04408CO_720x.jpg?v=1757378144">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 12 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA FLORENTINA 10K
+  
+      </p>
+  
+      <div class="precio">
+        $33,999 MXN
+      </div>
+  
+      <!-- TALLAS -->
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance12')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance12">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+
+  <!-- PRODUCTO 13 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04404CO_720x.jpg?v=1757378137">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 12 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA TORSAL 10K
+  
+      </p>
+  
+      <div class="precio">
+        $8,199 MXN
+      </div>
+  
+      <!-- TALLAS -->
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance13')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance13">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+
+  <!-- PRODUCTO 14 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04405CO_720x.jpg?v=1757378139">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 14 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA TORSAL 10K
+  
+      </p>
+  
+      <div class="precio">
+        $45,299 MXN
+      </div>
+  
+      <!-- TALLAS -->
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance14')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance14">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+
+  <!-- PRODUCTO 15 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/05302CO_720x.jpg?v=1757378255">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 15 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA TORSAL 10K
+  
+      </p>
+  
+      <div class="precio">
+        $157,599 MXN
+      </div>
+  
+      <!-- TALLAS -->
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance15')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance15">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+
+  <!-- PRODUCTO 16 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/05201CO_720x.jpg?v=1757378246">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 16 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA CHINA 10K
+  
+      </p>
+  
+      <div class="precio">
+        $162,999 MXN
+      </div>
+  
+      <!-- TALLAS -->
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance16')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance16">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+
+  <!-- PRODUCTO 17 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/05003CO_720x.jpg?v=1757378241">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 17 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA CHINA 10K
+  
+      </p>
+  
+      <div class="precio">
+        $83,699 MXN
+      </div>
+  
+      <!-- TALLAS -->
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance17')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance17">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+
+  <!-- PRODUCTO 18 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/05001CO-50_720x.jpg?v=1757378236">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 18 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA CHINA 10K
+  
+      </p>
+  
+      <div class="precio">
+        $140,999 MXN
+      </div>
+  
+      <!-- TALLAS -->
+       <div class="tallas">
+
+            <span class="talla-title">
+                Tallas Disponibles:
+            </span>
+  
+        <div class="talla-list">
+  
+        <span>50 CM</span>
+        <span>60 CM</span>
+        </div>
+  
+    </div>
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance18')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance18">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+
+  <!-- PRODUCTO 19 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04901CO_720x.jpg?v=1757378232">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 19 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA CHINA 10K
+  
+      </p>
+  
+      <div class="precio">
+        $105,999 MXN
+      </div>
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance19')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance19">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+
+  <!-- PRODUCTO 20 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04705CO_720x.jpg?v=1757378217">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 20 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA CHINA 10K
+  
+      </p>
+  
+      <div class="precio">
+        $163,999 MXN
+      </div>
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance20')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance20">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+
+
+<!-- PRODUCTO 21 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04704CO_720x.jpg?v=1757378215">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 21 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA CHINA 10K
+  
+      </p>
+  
+      <div class="precio">
+        $100,499 MXN
+      </div>
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance21')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance21">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+
+
+  <!-- PRODUCTO 22 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04703CO_720x.jpg?v=1757378213">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 22 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA CHINA 10K
+  
+      </p>
+  
+      <div class="precio">
+        $69,499 MXN
+      </div>
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance22')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance22">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+
+  <!-- PRODUCTO 23 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04701CO-45_720x.jpg?v=1757378209">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 23 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA CHINA 10K
+  
+      </p>
+  
+      <div class="precio">
+        $33,499 MXN
+      </div>
+      <div class="tallas">
+
+            <span class="talla-title">
+                Tallas Disponibles:
+            </span>
+  
+        <div class="talla-list">
+  
+        <span>45 cm</span>
+        <span>60 cm</span>
+        </div>
+  
+    </div>
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance23')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance23">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+
+  <!-- PRODUCTO 24 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04506CO_720x.jpg?v=1757378163">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 24 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA CARTIER 10K
+  
+      </p>
+  
+      <div class="precio">
+        $57,999 MXN
+      </div>
+  
+    </div>
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance24')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance24">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+
+    <!-- PRODUCTO 25 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04501CO-45_720x.jpg?v=1757378149">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 25 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA CARTIER 10K
+  
+      </p>
+  
+      <div class="precio">
+        $6,199 MXN
+      </div>
+  
+    </div>
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance25')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance25">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+
+
+    <!-- PRODUCTO 26 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04611CO_720x.jpg?v=1757378207">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 26 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA CARTIER 10K
+  
+      </p>
+  
+      <div class="precio">
+        $147,999 MXN
+      </div>
+  
+    </div>
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance26')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance26">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+
+    <!-- PRODUCTO 27 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04610CO_720x.jpg?v=1757378206">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 27 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA CARTIER 10K
+  
+      </p>
+  
+      <div class="precio">
+        $125,599 MXN
+      </div>
+  
+    </div>
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance27')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance27">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+
+    <!-- PRODUCTO 28 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04609CO-60_720x.jpg?v=1757378202">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 28 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA CARTIER 10K
+  
+      </p>
+  
+      <div class="precio">
+        $90,299 MXN
+      </div>
+
+      <div class="tallas">
+
+            <span class="talla-title">
+                Tallas Disponibles:
+            </span>
+  
+        <div class="talla-list">
+  
+        <span>60 cm</span>
+        <span>65 cm</span>
+        </div>
+  
+    </div>
+  
+    </div>
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance28')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance28">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+
+    <!-- PRODUCTO 29 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04608CO_720x.jpg?v=1757378201">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 29 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA CARTIER 10K
+  
+      </p>
+  
+      <div class="precio">
+        $62,299 MXN
+      </div>
+  
+    </div>
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance29')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance29">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+
+    <!-- PRODUCTO 30 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04607CO-60_720x.jpg?v=1757378197">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 30 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA CARTIER 10K
+  
+      </p>
+  
+      <div class="precio">
+        $46,499 MXN
+      </div>
+  
+    </div>
+
+    <div class="tallas">
+
+            <span class="talla-title">
+                Tallas Disponibles:
+            </span>
+  
+        <div class="talla-list">
+  
+        <span>60 cm</span>
+        <span>65 cm</span>
+        </div>
+  
+    </div>
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance30')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance30">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+
+    <!-- PRODUCTO 31 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04606CO_720x.jpg?v=1757378196">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 31 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA CARTIER 10K
+  
+      </p>
+  
+      <div class="precio">
+        $30,999 MXN
+      </div>
+  
+    </div>
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance31')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance31">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+
+    <!-- PRODUCTO 32 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04605CO-60_720x.jpg?v=1757378194">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 32 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA CARTIER 10K
+  
+      </p>
+  
+      <div class="precio">
+        $24,999 MXN
+      </div>
+  
+    </div>
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance32')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance32">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+
+
+    <!-- PRODUCTO 33 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04605CO-50_720x.jpg?v=1757378192">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 33 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA CARTIER 10K
+  
+      </p>
+  
+      <div class="precio">
+        $21,999 MXN
+      </div>
+  
+    </div>
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance33')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance33">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+
+     <!-- PRODUCTO 34 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04604CO-60_720x.jpg?v=1757378189">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 34 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA CARTIER 10K
+  
+      </p>
+  
+      <div class="precio">
+        $18,499 MXN
+      </div>
+  
+    </div>
+    <div class="tallas">
+
+            <span class="talla-title">
+                Tallas Disponibles:
+            </span>
+  
+        <div class="talla-list">
+  
+        <span>60 cm</span>
+        <span>65 cm</span>
+        </div>
+  
+    </div>
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance34')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance34">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+
+    <!-- PRODUCTO 35 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04603CO-50_720x.jpg?v=1757378186">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 35 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA CARTIER 10K
+  
+      </p>
+  
+      <div class="precio">
+        $11,499 MXN
+      </div>
+  
+    </div>
+    <div class="tallas">
+
+            <span class="talla-title">
+                Tallas Disponibles:
+            </span>
+  
+        <div class="talla-list">
+  
+        <span>50 cm</span>
+        <span>60 cm</span>
+        </div>
+  
+    </div>
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance35')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance35">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+
+    <!-- PRODUCTO 36 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04602CO-45_720x.jpg?v=1757378183">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 36 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA CARTIER 10K
+  
+      </p>
+  
+      <div class="precio">
+        $7,099 MXN
+      </div>
+  
+    </div>
+    <div class="tallas">
+
+            <span class="talla-title">
+                Tallas Disponibles:
+            </span>
+  
+        <div class="talla-list">
+  
+        <span>45 cm</span>
+        <span>55 cm</span>
+        </div>
+  
+    </div>
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance36')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance36">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+
+    <!-- PRODUCTO 37 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04601CO-45_720x.jpg?v=1757378179">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 37 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA CARTIER 10K
+  
+      </p>
+  
+      <div class="precio">
+        $3,999 MXN
+      </div>
+  
+    </div>
+    <div class="tallas">
+
+            <span class="talla-title">
+                Tallas Disponibles:
+            </span>
+  
+        <div class="talla-list">
+  
+        <span>45 cm</span>
+        <span>50 cm</span>
+        </div>
+  
+    </div>
+  
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance37')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance37">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+
+    <!-- PRODUCTO 38 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04505CO_720x.jpg?v=1757378161">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 38 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA CARTIER 10K
+  
+      </p>
+  
+      <div class="precio">
+        $38,499 MXN
+      </div>
+  
+    </div>
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance38')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance38">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+
+    <!-- PRODUCTO 39 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04504CO-55_720x.jpg?v=1757378158">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 39 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA CARTIER 10K
+  
+      </p>
+  
+      <div class="precio">
+        $23,499 MXN
+      </div>
+  
+    </div>
+    <div class="tallas">
+
+            <span class="talla-title">
+                Tallas Disponibles:
+            </span>
+  
+        <div class="talla-list">
+  
+        <span>55 cm</span>
+        <span>60 cm</span>
+        </div>
+  
+    </div>
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance39')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance39">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+
+    <!-- PRODUCTO 40 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04503CO-55_720x.jpg?v=1757378155">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 40 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA CARTIER 10K
+  
+      </p>
+  
+      <div class="precio">
+        $15,499 MXN
+      </div>
+  
+    </div>
+    <div class="tallas">
+
+            <span class="talla-title">
+                Tallas Disponibles:
+            </span>
+  
+        <div class="talla-list">
+  
+        <span>55 cm</span>
+        <span>60 cm</span>
+        </div>
+  
+    </div>
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance40')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance40">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+
+     <!-- PRODUCTO 41 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04502CO-50_720x.jpg?v=1757378152">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 41 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA CARTIER 10K
+  
+      </p>
+  
+      <div class="precio">
+        $9,299 MXN
+      </div>
+  
+    </div>
+    <div class="tallas">
+
+            <span class="talla-title">
+                Tallas Disponibles:
+            </span>
+  
+        <div class="talla-list">
+  
+        <span>50 cm</span>
+        <span>60 cm</span>
+        </div>
+  
+    </div>
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance41')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance41">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+
+     <!-- PRODUCTO 42 -->
+<div class="card">
+
+    <img src="https://lozanogarzajoyeria.com/cdn/shop/files/04304CO_720x.jpg?v=1757378118">
+  
+    <div class="info">
+  
+      <h2 class="nombre">
+        CADENA 42 10K
+      </h2>
+  
+      <p class="descripcion">
+  
+        CADENA CARTIER 10K
+  
+      </p>
+  
+      <div class="precio">
+        $12,999 MXN
+      </div>
+  
+    </div>
+      <!-- BOTON -->
+  
+      <a class="btn"
+      onclick="toggleFinance('finance42')">
+  
+        VER FINANCIAMIENTO
+  
+      </a>
+  
+      <!-- TABLA -->
+  
+      <div class="financiamiento"
+      id="finance42">
+  
+        <p class="note">
+  
+          Puedes pagar tu anillo
+          en cómodos plazos mensuales.
+  
+        </p>
+  
+        <table>
+  
+          <tr>
+  
+            <th>Meses</th>
+            <th>% Aumenta</th>
+            <th>Pago Final</th>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>3 Meses</td>
+            <td>5%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>6 Meses</td>
+            <td>10%</td>
+            <td></td>
+  
+          </tr>
+  
+          <tr>
+  
+            <td>9 Meses</td>
+            <td>15%</td>
+            <td></td>
+  
+          </tr>
+  
+        </table>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+  
+  </div>
+</section>
+
+<script>
+
+    /* ====================================
+       MOSTRAR / OCULTAR FINANCIAMIENTO
+    ==================================== */
+    
+    function toggleFinance(id){
+    
+      const finance =
+      document.getElementById(id);
+    
+      const isOpen =
+      finance.style.display === "block";
+    
+      if(isOpen){
+    
+        finance.style.display = "none";
+    
+      }else{
+    
+        finance.style.display = "block";
+    
+      }
+    
+    }
+    
+    /* ====================================
+       CALCULAR FINANCIAMIENTO AUTOMATICO
+    ==================================== */
+    
+    function calcularFinanciamiento(){
+    
+      // TODOS los productos
+      const cards =
+      document.querySelectorAll('.card');
+    
+      cards.forEach(card => {
+    
+        // Obtener precio
+        const precioTexto =
+        card.querySelector('.precio')
+        .innerText;
+    
+        // Limpiar precio
+        const precio =
+        parseFloat(
+          precioTexto
+          .replace('$','')
+          .replace(',','')
+          .replace(' MXN','')
+        );
+    
+        // Obtener filas de tabla
+        const filas =
+        card.querySelectorAll('table tr');
+    
+        // 3 MESES -> 5%
+        let total3 =
+        precio + (precio * 0.05);
+    
+        filas[1].children[2].innerText =
+        "$" +
+        total3.toLocaleString('es-MX',
+        {maximumFractionDigits:0})
+        + " MXN";
+    
+        // 6 MESES -> 10%
+        let total6 =
+        precio + (precio * 0.10);
+    
+        filas[2].children[2].innerText =
+        "$" +
+        total6.toLocaleString('es-MX',
+        {maximumFractionDigits:0})
+        + " MXN";
+    
+        // 9 MESES -> 15%
+        let total9 =
+        precio + (precio * 0.15);
+    
+        filas[3].children[2].innerText =
+        "$" +
+        total9.toLocaleString('es-MX',
+        {maximumFractionDigits:0})
+        + " MXN";
+    
+      });
+    
+    }
+    
+    /* ====================================
+       EJECUTAR AUTOMATICAMENTE
+    ==================================== */
+    
+    calcularFinanciamiento();
+    
+    </script>
+
+</body>
+</html>
