@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AUREO | Arras</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+body{
+    background:#021311;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    overflow:hidden;
+}
+
+/* Fondo elegante */
+body::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:rgba(212,175,55,0.05);
+    border-radius:50%;
+    filter:blur(100px);
+    top:-150px;
+    right:-100px;
+}
+
+body::after{
+    content:"";
+    position:absolute;
+    width:400px;
+    height:400px;
+    background:rgba(212,175,55,0.04);
+    border-radius:50%;
+    filter:blur(100px);
+    bottom:-150px;
+    left:-100px;
+}
+
+.container{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    max-width:700px;
+    padding:40px 25px;
+}
+
+.logo{
+    color:#D4AF37;
+    font-size:3rem;
+    letter-spacing:10px;
+    font-weight:300;
+    margin-bottom:30px;
+}
+
+.icon{
+    font-size:90px;
+    margin-bottom:20px;
+    animation:float 3s ease-in-out infinite;
+}
+
+h1{
+    color:#D4AF37;
+    font-size:3rem;
+    font-weight:300;
+    margin-bottom:15px;
+}
+
+p{
+    color:#d8d8d8;
+    font-size:1.1rem;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    background:#D4AF37;
+    color:#021311;
+    padding:14px 35px;
+    border-radius:30px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(212,175,55,.35);
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+@media(max-width:768px){
+
+    .logo{
+        font-size:2.2rem;
+        letter-spacing:6px;
+    }
+
+    h1{
+        font-size:2.2rem;
+    }
+
+    p{
+        font-size:1rem;
+    }
+
+    .icon{
+        font-size:70px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="logo">AUREO</div>
+
+    <div class="icon">🪙🪙</div>
+
+    <h1>Lo sentimos</h1>
+
+    <p>
+        Actualmente no contamos con arras disponibles.<br>
+        Estamos trabajando para ampliar nuestra colección y ofrecer nuevas piezas muy pronto.
+    </p>
+
+    <a href="catalogo.html" class="btn">
+        Volver al catálogo
+    </a>
+
+</div>
+
+</body>
+</html>
